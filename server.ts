@@ -9,4 +9,5 @@ const s = serve({ port: argPort ? Number(argPort) : DEFAULT_PORT });
 
 for await (const req of s) {
     req.respond({ body: "Hello World\n" });
+    console.log('111');
 }
