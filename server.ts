@@ -8,5 +8,5 @@ const argPort = parse(args).port;
 const s = serve({ port: argPort ? Number(argPort) : DEFAULT_PORT });
 
 for await (const req of s) {
-    req.respond({ body: "Hello World Levon !\n" });
+    req.respond({ body: "Hello World !\n" });
 }
