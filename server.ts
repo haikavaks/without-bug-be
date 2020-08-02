@@ -12,12 +12,7 @@ const DEFAULT_PORT = 8000;
 const argPort = parse(args).port;
 console.log(argPort);
 const s = serve({ port: argPort ? Number(argPort) : DEFAULT_PORT });
-console.log('here')
+console.log('localhost:8000')
 for await (const req of s) {
     req.respond({ body: "Hello World !\n" });
 }
-
-
-
-
-
