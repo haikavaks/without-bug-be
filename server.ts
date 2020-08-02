@@ -10,7 +10,7 @@ console.log('here')
 const { args } = Deno;
 const DEFAULT_PORT = 8000;
 const argPort = parse(args).port;
-
+console.log(argPort);
 const s = serve({ port: argPort ? Number(argPort) : DEFAULT_PORT });
 console.log('here')
 for await (const req of s) {
