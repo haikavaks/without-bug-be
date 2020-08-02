@@ -4,8 +4,8 @@ import { UserRole} from './migrations/User_Role.ts';
 import { User } from './migrations/User.ts';
 
 console.log('here')
-const x = await User.where('id', '1').roles();
-console.log(x)
+// const x = await User.where('id', '1').roles();
+
 console.log('here')
 const { args } = Deno;
 const DEFAULT_PORT = 8000;
