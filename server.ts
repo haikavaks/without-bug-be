@@ -1,18 +1,18 @@
-import { serve } from 'https://deno.land/std@0.57.0/http/server.ts';
-import { parse } from 'https://deno.land/std/flags/mod.ts';
- // import { UserRole} from './migrations/User_Role.ts';
- // import { User } from './migrations/User.ts';
+import { serve } from "https://deno.land/std@v0.58.0/http/server.ts";
+import * as flags from "https://deno.land/std@v0.58.0/flags/mod.ts";
 
-console.log('here')
-// const x = await User.where('id', '1').roles();
+const DEFAULT_PORT = 8080;
+const argPort = flags.parse(Deno.args).port;
+const port = argPort ? Number(argPort) : DEFAULT_PORT;
 
-console.log('here')
-const { args } = Deno;
-const DEFAULT_PORT = 8000;
-const argPort = parse(args).port;
-console.log(argPort);
-const s = serve({ port: argPort ? Number(argPort) : DEFAULT_PORT });
-console.log('localhost:8000')
+if (isNaN(port)) {
+    console.error("Port is not a number.");
+    Deno.exit(1);
+}
+
+const s = serve({ port: port });
+console.log("http://localhost:" + port);
+
 for await (const req of s) {
-    req.respond({ body: "Hello World !\n" });
+    req.respond({ body: "Hello World\n" });
 }
